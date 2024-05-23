@@ -20,6 +20,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.resuource.CommonProperties;
 
 public class BaseClass extends BrowserFactory {
 	public WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -27,6 +28,7 @@ public class BaseClass extends BrowserFactory {
 	public static Logger logger;
 	public static ExtentReports extentReports;
 	public static ExtentTest extentTest;
+	
 	
 
 	@BeforeTest
@@ -43,7 +45,7 @@ public class BaseClass extends BrowserFactory {
 		logger = LogManager.getLogger(getClass());
 		BrowserFactory.browser();
 
-		driver.get("https://automationexercise.com/");
+		driver.get(getdata("url"));
 		extentTest = extentReports.createTest("Automation Framework");
 		extentTest.pass(driver.getTitle());
 		logger.info(driver.getTitle());
@@ -54,6 +56,7 @@ public class BaseClass extends BrowserFactory {
 	        Date currentDate = new Date();
 	        return dateFormat.format(currentDate);
 	    }
+	
 
 	@AfterTest
 	public void tearDown() {
