@@ -1,6 +1,7 @@
 package com.base;
 
 import java.text.SimpleDateFormat;
+
 import java.time.Duration;
 import java.util.Date;
 
@@ -22,19 +23,25 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.resuource.CommonProperties;
 
+/**
+ * Description of your class or code file.
+ * 
+ * @author Saurabh Dubey
+ * @version 1.0
+ */
+
 public class BaseClass extends BrowserFactory {
 	public WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 //	public JavascriptExecutor js=
 	public static Logger logger;
 	public static ExtentReports extentReports;
 	public static ExtentTest extentTest;
-	
-	
 
 	@BeforeTest
 	public void setUp() {
 		System.setProperty("log4j.configurationFile", "log4j2.xml");
-		ExtentSparkReporter sparkReporter = new ExtentSparkReporter("Reports/extent-report.html"+getCurrentDateTimeAsString());
+		ExtentSparkReporter sparkReporter = new ExtentSparkReporter(
+				"Reports/extent-report.html" + getCurrentDateTimeAsString());
 		sparkReporter.config().setDocumentTitle("Automation Test Report");
 		sparkReporter.config().setReportName("ExtentReports Demo");
 		sparkReporter.config().setTheme(Theme.DARK);
@@ -51,27 +58,27 @@ public class BaseClass extends BrowserFactory {
 		logger.info(driver.getTitle());
 
 	}
-	 public static String getCurrentDateTimeAsString() {
-	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-	        Date currentDate = new Date();
-	        return dateFormat.format(currentDate);
-	    }
-	
+
+	public static String getCurrentDateTimeAsString() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+		Date currentDate = new Date();
+		return dateFormat.format(currentDate);
+	}
 
 	@AfterTest
 	public void tearDown() {
 		if (driver != null) {
-            driver.quit();
-        }
-        
-        extentReports.flush();
+			driver.quit();
+		}
+
+		extentReports.flush();
 	}
 
 	public void click(WebElement ele) {
 		wait.until(ExpectedConditions.visibilityOf(ele));
 		String txt = ele.getText();
 		logger.info(txt);
-		extentTest.info("Click on :"+txt);
+		extentTest.info("Click on :" + txt);
 		ele.click();
 	}
 
@@ -80,10 +87,10 @@ public class BaseClass extends BrowserFactory {
 		ele.click();
 		String txt = ele.getText();
 		logger.info(txt);
-		extentTest.info("Click on :"+txt);
+		extentTest.info("Click on :" + txt);
 		ele.clear();
 		ele.sendKeys(text);
-		
+
 	}
 
 	public void radioBtn(WebElement ele) {
@@ -91,8 +98,7 @@ public class BaseClass extends BrowserFactory {
 		ele.click();
 		String txt = ele.getText();
 		logger.info(txt);
-		extentTest.info("Click on :"+txt);
-		
+		extentTest.info("Click on :" + txt);
 
 	}
 
@@ -101,20 +107,18 @@ public class BaseClass extends BrowserFactory {
 		Select sc = new Select(ele);
 		sc.selectByVisibleText(text);
 //		String txt = ele.getText();
-		logger.info("and select by visible text :"+text);
-		extentTest.info("select by visible text :"+text);
-		
+		logger.info("and select by visible text :" + text);
+		extentTest.info("select by visible text :" + text);
 
-		
 	}
-	public void checkbox(WebElement ele)
-	{
+
+	public void checkbox(WebElement ele) {
 		wait.until(ExpectedConditions.elementSelectionStateToBe(ele, false));
 		ele.click();
 		String txt = ele.getText();
 		logger.info(txt);
 		extentTest.info("Clicked on Checkbox");
-		
+
 	}
 
 }
