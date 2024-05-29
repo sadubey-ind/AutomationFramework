@@ -1,11 +1,19 @@
 package com.pages;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.BaseClass;
+
+/**
+ * Description of your class or code file.
+ * 
+ * @author Saurabh Dubey
+ * @version 1.0
+ */
 
 public class HomePage extends BaseClass {
 //	private WebDriver driver;
