@@ -5,6 +5,7 @@
     <classes>
       <class name="com.testcases.TC001">
         <methods>
+          <include name="takeScreenshot"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="loginTest"/>

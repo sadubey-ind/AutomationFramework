@@ -1,8 +1,9 @@
-/target
+/
 .classpath
 .project
 .settings
-test-output
 Reports
 Screenshot
+test-output
+target
 .idea/

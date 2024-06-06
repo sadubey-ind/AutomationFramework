@@ -12,6 +12,7 @@ public class TC003 extends BaseClass{
 		PageDelete pd=new PageDelete(driver);
 		pd.login("sdubey@demo.com", "Staing@123").deleteAcc();
 		
+		
 	}
 
 }

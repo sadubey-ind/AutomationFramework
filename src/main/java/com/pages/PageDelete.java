@@ -1,5 +1,7 @@
 package com.pages;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,6 +37,7 @@ public class PageDelete extends BaseClass {
 		click(ele2);
 		logger.info("Loggin Succesfully");
 		extentTest.info("Login succesfully");
+		assertEquals(" ", false);
 		return this;
 	}
 

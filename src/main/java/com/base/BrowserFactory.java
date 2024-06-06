@@ -54,9 +54,7 @@ public class BrowserFactory {
 		Properties properties = new Properties(); // Initialize properties object
 
 		try {
-			FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties"); // Removed
-																											// leading
-																											// "/"
+			FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties");
 			properties.load(fileInputStream);
 			fileInputStream.close();
 		} catch (IOException e) {
