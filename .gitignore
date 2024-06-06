@@ -4,6 +4,14 @@
 .settings
 Reports
 Screenshot
-test-output
+test-output/
 target
+test-output/Default suite/Default test.html
+test-output/Default suite/Default test.xml
+test-output/emailable-report.html
+test-output/index.html
+test-output/old/Default suite/methods-alphabetical.html
+test-output/old/Default suite/methods.html
+
+
 .idea/
